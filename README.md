@@ -125,4 +125,4 @@ src/
 
 ---
 
-Desenvolvido como parte do **Teste Prático para o
+Desenvolvido como parte do **Teste Prático para o Ebanks**.
