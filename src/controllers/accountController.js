@@ -8,7 +8,7 @@ function reset(req, res) {
 function getBalance(req, res) {
 	const { account_id } = req.query;
 	const balance = accountService.getBalance(account_id);
-	if (balance === null) return res.status(404).send(0);
+	if (balance === null) return res.status(404).send('0');
 	return res.status(200).send(balance.toString());
 }
 
@@ -22,13 +22,13 @@ function handleEvent(req, res) {
 
 	if (type === 'withdraw') {
 		const account = accountService.withdraw(origin, amount);
-		if (!account) return res.status(404).send(0);
+		if (!account) return res.status(404).send('0');
 		return res.status(201).json({ origin: account });
 	}
 	
 	if (type === 'transfer') {
 		const result = accountService.transfer(origin, destination, amount);
-		if (!result) return res.status(404).send(0);
+		if (!result) return res.status(404).send('0');
 		return res.status(201).json(result);
 	}
 	
